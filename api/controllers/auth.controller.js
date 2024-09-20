@@ -1,7 +1,7 @@
 import { User } from "../models/user.model.js";
 import bcryptjs from "bcryptjs";
-import { generateVerificationToken } from "../utils/generateVerificationToken.js";
-import { generateTokenAndSetCookie } from "../utils/generateTokenAndSetCookie.js";
+// import { generateVerificationToken } from "../utils/generateVerificationToken.js";
+// import { generateTokenAndSetCookie } from "../utils/generateTokenAndSetCookie.js";
 
 export const signup = async (req, res) => {
   const { email, password, displayName } = req.body;
@@ -19,7 +19,7 @@ export const signup = async (req, res) => {
     }
 
     const hashedPassword = await bcryptjs.hash(password, 10);
-    const verificationToken = generateVerificationToken();
+    // const verificationToken = generateVerificationToken();
     const user = new User({
       email,
       password: hashedPassword,
@@ -62,7 +62,7 @@ export const social = async (req, res) => {
       });
     }
     const hashedPassword = await bcryptjs.hash(email, 10);
-    const verificationToken = generateVerificationToken();
+    // const verificationToken = generateVerificationToken();
     const user = new User({
       email,
       displayName,
@@ -103,7 +103,7 @@ export const login = async (req, res) => {
         .json({ success: false, message: "Invalid credentials" });
     }
 
-    generateTokenAndSetCookie(res, user._id);
+    // generateTokenAndSetCookie(res, user._id);
 
     user.lastLogin = new Date();
     await user.save();
