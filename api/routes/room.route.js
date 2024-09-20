@@ -7,8 +7,9 @@ import {
   getRoomById,
   getRoomsByUserRole,
   updateRoom,
-} from "../../controllers/room.controller.js";
+} from "../controllers/room.controller.js";
 const router = express.Router();
+
 
 router.post("/add-room", addRoom);
 router.get("/all-rooms", getAllRooms);

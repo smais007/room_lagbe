@@ -1,9 +1,5 @@
 import express from "express";
-import {
-  deletePayment,
-  getPayment,
-  getPaymentById,
-} from "../../controllers/payment.controller.js";
+import { deletePayment, getPayment, getPaymentById } from "../controllers/payment.controller.js";
 const router = express.Router();
 
 router.post("/transition", getPayment);
