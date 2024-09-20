@@ -15,6 +15,7 @@ import { connectDB } from "../db/connectDB.js";
 
 dotenv.config();
 const app = express();
+const PORT = process.env.PORT || 5000;
 
 const corsConfig = {
   origin: ["http://localhost:5173"],
@@ -41,8 +42,6 @@ app.options("*", cors(corsConfig));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-const PORT = process.env.PORT || 5000;
-
 app.use("/api/auth", authRoutes);
 app.use("/api", usersRoutes);
 
@@ -60,3 +59,5 @@ app.listen(PORT, () => {
   connectDB();
   console.log("Server listening on port:", PORT);
 });
+
+module.exports = app;
