@@ -24,7 +24,6 @@ export const signup = async (req, res) => {
       email,
       password: hashedPassword,
       displayName,
-      verificationToken,
       verificationTokenExpiresAt: Date.now() + 10 * 60 * 60 * 1000,
     });
 
@@ -67,7 +66,7 @@ export const social = async (req, res) => {
       email,
       displayName,
       photoURL,
-      verificationToken,
+
       password: hashedPassword,
       verificationTokenExpiresAt: Date.now() + 10 * 60 * 60 * 1000,
     });
