@@ -9,7 +9,7 @@ import {
 
 const router = express.Router();
 
-router.get("/check-auth", verifyToken, checkAuth);
+router.get("/check-auth", checkAuth);
 
 router.post("/signup", signup);
 router.post("/social", social);
